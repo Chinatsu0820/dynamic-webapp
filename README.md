@@ -33,10 +33,10 @@ Note: add comments in my JavaScript code to indicate where I am using native JS 
 The project should demonstrate understanding and appropriate usage of native ES6+ JavaScript to preserve and update the state of data after the webpage or application is closed and re-opened. (by using localStorage, sessionStorage, or other means (without using any libraries, frameworks, or tools).)
 
 Note: I just need to prove that I can save the progress/state of a web application upon closing it. If I use localStorage, I sould be aware of the following: 
- <a> It has a 5MB limit
- <b> I can only store string data, so my arrays and objects need to be parsed
- <c> It is inappropriate to store sensitive data such as login credentials in localStorage because it is not secure
- <d> LocalStorage is inaccessible in incognito/private browsing modes.
+ <1> It has a 5MB limit
+ <2> I can only store string data, so my arrays and objects need to be parsed
+ <3> It is inappropriate to store sensitive data such as login credentials in localStorage because it is not secure
+ <4> LocalStorage is inaccessible in incognito/private browsing modes.
 
 8. Responsive
 The web app should be fully responsive, adapting well to the four categories of screen sizes: Phone, Tablet, Desktop, and Wide Screen. 
