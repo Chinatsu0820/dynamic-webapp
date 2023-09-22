@@ -1,13 +1,9 @@
 const apiKey = 'ec112e164c3b7dd3ec382aca02d7083a'; /* ← I want to use .env  */
 
-const weatherIcon = document.getElementById("displayWeather");
-const weatherIconFive = document.getElementById("displayWeatherFive");
-
-
 
 /*----- to get a city name from the search bar -----*/
 function clickSearch() {
-    const city = document.getElementById("place").value;
+    const city = document.getElementById("cityName").value;
     console.log(city);
 
     // insert the function about current weather
@@ -60,12 +56,15 @@ function displayWeatherData(data) {
     const temperatureElementLow = document.getElementById("displayTempLow");
 
     // to adjust the number of digits after the decimal point to 2 digits, and display it on the app
-    temperatureElementHigh.textContent = `${temperatureHigh.toFixed(2)}°C`;
-    temperatureElementLow.textContent = `${temperatureLow.toFixed(2)}°C`;
+    temperatureElementHigh.textContent = `Highest : ${temperatureHigh.toFixed(2)}°C`;
+    temperatureElementLow.textContent = `Lowest : ${temperatureLow.toFixed(2)}°C`;
 
     //----- for weather icon ----- 
     // get the icon from openweathermap and display it on the app 
     const iconURL = `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
+
+    const weatherIcon = document.getElementById("displayWeather");
+
     weatherIcon.setAttribute('src', iconURL);
 
 
@@ -90,27 +89,60 @@ function getFiveWeather(city) {
         dataType: 'json',
         type: 'GET'
     })
-    .done(function (data) {
-        console.log(data, "Five Successful");
+        .done(function (data) {
+            console.log(data, "Five Successful");
 
-        // to get 5 days weather data 
-        const fiveDayData = data.list.slice(1, 6);
+            // to select the data which has 12:00:00 at the end of dt.txt
+            const twelveOclockData = data.list.filter(item => {
+                return item.dt_txt.endsWith("12:00:00");
+            });
 
-        // to display it on the app
-        fiveDayData.forEach(function (dayData, index) {
-            const temperatureFive = dayData.main.temp - 273.15;
-            const iconFiveURL = `https://openweathermap.org/img/wn/${dayData.weather[0].icon}.png`;
+            // Those code will be executed for each element in twelveOclockData.(= 5 )
+            twelveOclockData.forEach(function (data, index) {
 
-            // to get the each element 
-            const temperatureElementFive = $(".displayTempFive").eq(index);
-            const weatherIconFive = $(".displayWeatherFive").eq(index);
+                // -----for temprature -----
+                // to get the temp element 
+                const temperatureElementFive = $(".displayTempFive").eq(index);
 
-    // to get the temprature from data and convert from Kelvin to Celsius
-            temperatureElementFive.text(`${temperatureFive.toFixed(2)}°C`);
-            weatherIconFive.attr('src', iconFiveURL);
+                // to get the temp data and convert it from Kelvin to Celsius 
+                const temperatureFiveHigh = data.main.temp_max - 273.15;
+                const temperatureFiveLow = data.main.temp_min - 273.15;
+
+                // to display the temp on the app
+                temperatureElementFive.text(`${temperatureFiveHigh.toFixed(2)}°C / ${temperatureFiveLow.toFixed(2)}°C`);
+
+
+                // -----for icon -----
+                // to get the icon element 
+                const weatherIconFive = $(".displayWeatherFive").eq(index);
+
+                // to get the icon data from the url
+                const iconFiveURL = `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
+
+                // to display the icon on the app
+                weatherIconFive.attr('src', iconFiveURL);
+
+
+                // ----- for date -----
+                // to get the date element 
+                const dateElementFive = $(".displayDateFive").eq(index);
+
+                // to get the date data
+                const dateTimeText = data.dt_txt; // e.g. "2023-09-15 12:00:00"
+                const parts = dateTimeText.split(" ")[0].split("-"); // ["2023", "09", "15"]
+                const monthAndDay = `${parts[2]}/${parts[1]}`; // "09/15"
+
+                // to display the date on the app
+                dateElementFive.text(monthAndDay);
+
+
+                console.log(`Day ${index + 1} - Date and Time: ${dateTimeText}`);
+                console.log(`Temperature: ${temperatureFiveHigh.toFixed(2)}°C / ${temperatureFiveLow.toFixed(2)}°C`);
+                console.log(`Weather Icon URL: ${iconFiveURL}`);
+            });
+        })
+        .fail(function (jqXHR, textStatus, errorThrown) {
+            console.error('There was a problem with the request:', textStatus, errorThrown);
         });
-    })
-    .fail(function (jqXHR, textStatus, errorThrown) {
-        console.error('There was a problem with the request:', textStatus, errorThrown);
-    });
 }
+
