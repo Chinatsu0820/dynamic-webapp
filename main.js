@@ -1,5 +1,5 @@
-const apiKey = 'ec112e164c3b7dd3ec382aca02d7083a'; /* ← I want to use .env  */
-
+const apiKey = 'ec112e164c3b7dd3ec382aca02d7083a'; // open weather map
+const dateApiKey = '65ce17885e4d4c8699532647232209'; // weather api for getting the date
 
 /*----- to get a city name from the search bar -----*/
 function clickSearch() {
@@ -8,11 +8,35 @@ function clickSearch() {
 
     // insert the function about current weather
     getCurrentWeather(city);
+    getCurrentDate(city);
 
     // insert the function about five days weather forecast
     getFiveWeather(city);
 }
 
+
+/*----- to save the city-name data which the user searched in local and display it on the app ------*/
+function saveSearchedCity(cityName) {
+    // Get history from local storage
+    let cityHistory = localStorage.getItem("searchedCity");
+
+    // Initialize an empty array if there is no history
+    if (!cityHistory) {
+        cityHistory = [];
+    } else {
+        // Parse JSON string to JavaScript array
+        cityHistory = JSON.parse(cityHistory);
+    }
+
+    // Add the new city name to the history
+    cityHistory.push(cityName);
+
+    // Save the new history in local storage after converting it back to JSON string
+    localStorage.setItem("searchedCity", JSON.stringify(cityHistory));
+
+    // Display the searched cities
+    document.getElementById("savedCityName").textContent = cityHistory.join(", ");
+}
 
 
 /*----- to get an url of current weather using fetch API -----*/
@@ -32,13 +56,13 @@ function getCurrentWeather(city) {
 }
 
 
-
 /*----- to display current weather data -----*/
 function displayWeatherData(data) {
 
     //----- for city name -----
     // to get the city name from data
     const cityName = data.name;
+    saveSearchedCity(cityName);
 
     // to get element from HTML to put the city name in it
     const cityNameElement = document.getElementById("displayCityName");
@@ -78,6 +102,28 @@ function displayWeatherData(data) {
     // to display it on the app
     windSpeedElement.textContent = windSpeed + "(m/sec)";
 
+}
+
+
+/*----- to get an url of current date at the city which the user serched using fetch API -----*/
+function getCurrentDate(city) {
+    fetch(`https://api.weatherapi.com/v1/timezone.json?key=${dateApiKey}&q=${city}`)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data, "Got Date");
+            displayCurrentDate(data);
+        })
+        .catch(error => {
+            console.error("There is an error about date :", error);
+        });
+
+}
+
+/*----- to display current date data -----*/
+function displayCurrentDate(data) {
+    const currentDate = data.location.localtime;
+    const currentDateElement = document.getElementById("displayDateToday");
+    currentDateElement.textContent = currentDate;
 }
 
 
