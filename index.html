@@ -13,102 +13,141 @@
 </head>
 
 <body>
+    <style>
+        /* font for the website title */
+        @import url('https://fonts.googleapis.com/css2?family=Croissant+One&display=swap');
+
+        h1 {
+            font-family: 'Croissant One', cursive;
+        }
+    </style>
+
+
     <div class="flex flex-col min-h-screen">
-    <!------------ HEADER ------------->
-    <header class="w-screen bg-blue-500">
-        <p>Here is Header</p>
-    </header>
+        <!------------ HEADER ------------->
+        <header class="w-screen flex justify-between items-center px-6 py-3">
+            <h1 class="text-2xl md:text-3xl">Weather App</h1>
 
-    <!------------- MAIN -------------->
-    <main class="w-screen grid place-content-center flex-grow"> <!--*MEMO* flex-grow is for fixing Foorter at the bottom of the page -->
-        <div class="max-w-4xl">
-        <div class="m-4 text-gray-600">
-            <input class="border-2 border-gray-300 bg-white h-10 px-5 pr-10 rounded-lg text-sm focus:outline-none"
-                type="search" name="search" placeholder="City Name" id="cityName">
-            <button type="submit" class="bg-gray-500 text-white m-2 p-1 rounded" onclick="clickSearch()">GO
-            </button>
-        </div>
-        <div>Previous : <span class="" id="savedCityName"></div>
-
-        <div class="grid grid-cols-1 md:grid-cols-5 gap-3 p-4">
-            <!--Today's weather-->
-            <div class="md:col-span-3 md:order-2">
-                <div class="bg-white shadow-md rounded-lg p-4 mb-3">
-                    <div class="p-4 flex justify-between">
-                        <p class="text-lg font-semibold" id="displayCityName">City Name</p>
-                        <p class="" id="displayDateToday">date</p>
-                    </div>
-                    <img src="" class="w-48" id="displayWeather" alt="">
+            <div class="flex gap-3">
+                <div>
+                    <a class="snsButton relative" href="https://twitter.com">
+                        <img class="w-8" src="assets/icons/icons8-twitterx.svg" alt="This is an link icon of TwitterX.">
+                    </a>
+                    <p class="toolTip absolute bg-gray-500 bg-opacity-50 hidden p-1 rounded">SHARE!</p>
                 </div>
-
-                <div class="grid md:grid-cols-2 gap-3">
-                    <!--Today's temp-->
-                    <div class="bg-white shadow-md rounded-lg p-4 md:col-span-1">
-                        <p class="">Temprature</p>
-                        <div class="p-4">
-                            <p class="text-lg font-semibold" id="displayTempHigh">HIGH TEMP</p>
-                            <p class="text-lg font-semibold" id="displayTempLow">LOW TEMP</p>
-                        </div>
-                    </div>
-
-                    <!--Today's wind-->
-                    <div class="bg-white shadow-md rounded-lg p-4 md:col-span-1">
-                        <p class="">Wind</p>
-                        <div class="p-4">
-                            <p class="text-lg font-semibold" id="displayWindSpeed">WIND</p>
-                        </div>
-                    </div>
-
+                <div>
+                    <a class="snsButton relative" href="https://instagram.com">
+                        <img class="w-8" src="assets/icons/icons8-instagram.svg"
+                            alt="This is an link icon of Instagram.">
+                    </a>
+                    <p class="toolTip absolute bg-red-500 bg-opacity-50 hidden p-1 rounded">SHARE!</p>
+                </div>
+                <div>
+                    <a class="snsButton relative" href="https://facebook.com">
+                        <img class="w-8" src="assets/icons/icons8-facebook.svg" alt="This is an link icon of Facebook.">
+                    </a>
+                    <p class="toolTip absolute bg-blue-500 bg-opacity-50 hidden p-1 rounded overflow-hidden">SHARE!</p>
                 </div>
             </div>
 
-            <!-- Weekly weather -->
-            <div class="md:col-span-2 md:order-1 bg-white rounded-lg shadow-md ">
+        </header>
 
-                <div class="p-4">
-                    <h5 class="text-lg font-semibold">WEEKLY</h5>
-                    <p class="text-gray-600">This is 5 days weather forecast</p>
+        <!------------- MAIN -------------->
+        <main class="w-screen grid place-content-center flex-grow">
+            <!--*MEMO* flex-grow is for fixing Foorter at the bottom of the page -->
+            <div class="max-w-4xl">
+                <div class="m-4 text-gray-600">
+                    <input
+                        class="border-2 border-gray-300 bg-white h-10 px-5 pr-10 rounded-lg text-sm focus:outline-none"
+                        type="search" name="search" placeholder="City Name" id="cityName">
+                    <button type="submit" class="bg-gray-500 text-white m-2 p-1 rounded hover:bg-blue-500"
+                        onclick="clickSearch()">GO
+                    </button>
                 </div>
-                <ul class="mt-4 p-4">
-                    <li class="flex items-center mb-2">
-                        <div class="displayDateFive"></div>
-                        <img src="" class="w-14 displayWeatherFive" alt="">
-                        <div class="text-lg font-semibold displayTempFive"></div>
-                    </li>
-                    <li class="flex items-center mb-2">
-                        <div class="displayDateFive"></div>
-                        <img src="" class="w-14 displayWeatherFive" alt="">
-                        <div class="text-lg font-semibold displayTempFive"></div>
-                    </li>
-                    <li class="flex items-center mb-2">
-                        <div class="displayDateFive"></div>
-                        <img src="" class="w-14 displayWeatherFive" alt="">
-                        <div class="text-lg font-semibold displayTempFive"></div>
-                    </li>
-                    <li class="flex items-center mb-2">
-                        <div class="displayDateFive"></div>
-                        <img src="" class="w-14- displayWeatherFive" alt="">
-                        <div class="text-lg font-semibold displayTempFive"></div>
-                    </li>
-                    <li class="flex items-center mb-2">
-                        <div class="displayDateFive"></div>
-                        <img src="" class="w-14 displayWeatherFive" alt="">
-                        <div class="text-lg font-semibold displayTempFive"></div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </main>
+                <div>Previous : <span class="" id="savedCityName"></div>
 
-    <!------------ FOOTER ------------->
-    <footer class="w-screen bg-blue-500">
-        <p>Here is footer</p>
-    </footer>
-</div>
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-3 p-4">
+                    <!--Today's weather-->
+                    <div class="md:col-span-3 md:order-2">
+                        <div class="bg-white shadow-md rounded-lg p-4 mb-3">
+                            <div class="p-4 flex justify-between">
+                                <p class="text-lg font-semibold" id="displayCityName">City Name</p>
+                                <p class="" id="displayDateToday">date</p>
+                            </div>
+                            <img src="" class="w-48" id="displayWeather" alt="">
+                        </div>
 
+                        <div class="grid md:grid-cols-2 gap-3">
+                            <!--Today's temp-->
+                            <div class="bg-white shadow-md rounded-lg p-4 md:col-span-1">
+                                <p class="">Temprature</p>
+                                <div class="p-4">
+                                    <p class="text-lg font-semibold" id="displayTempHigh">HIGH TEMP</p>
+                                    <p class="text-lg font-semibold" id="displayTempLow">LOW TEMP</p>
+                                </div>
+                            </div>
+
+                            <!--Today's wind-->
+                            <div class="bg-white shadow-md rounded-lg p-4 md:col-span-1">
+                                <p class="">Wind</p>
+                                <div class="p-4">
+                                    <p class="text-lg font-semibold" id="displayWindSpeed">WIND</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Weekly weather -->
+                    <div class="md:col-span-2 md:order-1 bg-white rounded-lg shadow-md ">
+
+                        <div class="p-4">
+                            <h5 class="text-lg font-semibold">WEEKLY</h5>
+                            <p class="text-gray-600">This is 5 days weather forecast</p>
+                        </div>
+                        <ul class="mt-4 p-4">
+                            <li class="flex items-center mb-2">
+                                <div class="displayDateFive"></div>
+                                <img src="" class="w-14 displayWeatherFive" alt="">
+                                <div class="text-lg font-semibold displayTempFive"></div>
+                            </li>
+                            <li class="flex items-center mb-2">
+                                <div class="displayDateFive"></div>
+                                <img src="" class="w-14 displayWeatherFive" alt="">
+                                <div class="text-lg font-semibold displayTempFive"></div>
+                            </li>
+                            <li class="flex items-center mb-2">
+                                <div class="displayDateFive"></div>
+                                <img src="" class="w-14 displayWeatherFive" alt="">
+                                <div class="text-lg font-semibold displayTempFive"></div>
+                            </li>
+                            <li class="flex items-center mb-2">
+                                <div class="displayDateFive"></div>
+                                <img src="" class="w-14- displayWeatherFive" alt="">
+                                <div class="text-lg font-semibold displayTempFive"></div>
+                            </li>
+                            <li class="flex items-center mb-2">
+                                <div class="displayDateFive"></div>
+                                <img src="" class="w-14 displayWeatherFive" alt="">
+                                <div class="text-lg font-semibold displayTempFive"></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+        </main>
+
+        <!------------ FOOTER ------------->
+        <footer class="w-screen p-3 text-center">
+            <p>© 2023 Chinatsu inc.</p>
+        </footer>
+    </div>
+
+
+    <!------------ jQuery & JS link ------------->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="./main.js"></script>
+    <script src="./tooltip.js"></script>
 
 </body>
 
