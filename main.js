@@ -151,11 +151,10 @@ function getFiveWeather(city) {
                 const temperatureElementFive = $(".displayTempFive").eq(index);
 
                 // to get the temp data and convert it from Kelvin to Celsius 
-                const temperatureFiveHigh = data.main.temp_max - 273.15;
-                const temperatureFiveLow = data.main.temp_min - 273.15;
+                const temperatureFive = data.main.temp - 273.15;
 
                 // to display the temp on the app
-                temperatureElementFive.text(`${temperatureFiveHigh.toFixed(2)}°C / ${temperatureFiveLow.toFixed(2)}°C`);
+                temperatureElementFive.text(`${temperatureFive.toFixed(2)}°C`);
 
 
                 // -----for icon -----
@@ -183,7 +182,7 @@ function getFiveWeather(city) {
 
 
                 console.log(`Day ${index + 1} - Date and Time: ${dateTimeText}`);
-                console.log(`Temperature: ${temperatureFiveHigh.toFixed(2)}°C / ${temperatureFiveLow.toFixed(2)}°C`);
+                console.log(`Temperature: ${temperatureFive.toFixed(2)}°C`);
                 console.log(`Weather Icon URL: ${iconFiveURL}`);
             });
         })
