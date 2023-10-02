@@ -28,14 +28,21 @@ function saveSearchedCity(cityName) {
         cityHistory = JSON.parse(cityHistory);
     }
 
-    // Add the new city name to the history
-    cityHistory.push(cityName);
+    // Add the new city name to the beggining of the history array
+    cityHistory.unshift(cityName);
+
+    // Delete the item of the history array if there are over 5 items
+    if(cityHistory.length > 5) { 
+        cityHistory.pop();
+    }
 
     // Save the new history in local storage after converting it back to JSON string
     localStorage.setItem("searchedCity", JSON.stringify(cityHistory));
 
     // Display the searched cities
     document.getElementById("savedCityName").textContent = cityHistory.join(", ");
+
+   
 }
 
 

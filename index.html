@@ -9,10 +9,8 @@
     <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <title>Home</title>
-</head>
+    <title>Weather App</title>
 
-<body>
     <style>
         /* font for the website title */
         @import url('https://fonts.googleapis.com/css2?family=Croissant+One&display=swap');
@@ -21,8 +19,9 @@
             font-family: 'Croissant One', cursive;
         }
     </style>
+</head>
 
-
+<body>
     <div class="flex flex-col min-h-screen">
         <!------------ HEADER ------------->
         <header class="w-screen flex justify-between items-center px-6 py-3">
@@ -64,7 +63,7 @@
                         onclick="clickSearch()">GO
                     </button>
                 </div>
-                <div>Previous : <span class="" id="savedCityName"></div>
+                <div>Previous : <span id="savedCityName"></span></div>
 
                 <div class="grid grid-cols-1 md:grid-cols-5 gap-3 p-4">
                     <!--Today's weather-->
@@ -74,7 +73,7 @@
                                 <p class="text-lg font-semibold" id="displayCityName">City Name</p>
                                 <p class="" id="displayDateToday">date</p>
                             </div>
-                            <img src="" class="w-48" id="displayWeather" alt="">
+                            <img src="..." class="w-48" id="displayWeather" alt="">
                         </div>
 
                         <div class="grid md:grid-cols-2 gap-3">
@@ -108,32 +107,33 @@
                         <ul class="mt-4 p-4">
                             <li class="flex items-center mb-2">
                                 <div class="displayDateFive"></div>
-                                <img src="" class="w-14 displayWeatherFive" alt="">
+                                <img src="..." class="w-14 displayWeatherFive" alt="">
                                 <div class="text-lg font-semibold displayTempFive"></div>
                             </li>
                             <li class="flex items-center mb-2">
                                 <div class="displayDateFive"></div>
-                                <img src="" class="w-14 displayWeatherFive" alt="">
+                                <img src="..." class="w-14 displayWeatherFive" alt="">
                                 <div class="text-lg font-semibold displayTempFive"></div>
                             </li>
                             <li class="flex items-center mb-2">
                                 <div class="displayDateFive"></div>
-                                <img src="" class="w-14 displayWeatherFive" alt="">
+                                <img src="..." class="w-14 displayWeatherFive" alt="">
                                 <div class="text-lg font-semibold displayTempFive"></div>
                             </li>
                             <li class="flex items-center mb-2">
                                 <div class="displayDateFive"></div>
-                                <img src="" class="w-14- displayWeatherFive" alt="">
+                                <img src="..." class="w-14- displayWeatherFive" alt="">
                                 <div class="text-lg font-semibold displayTempFive"></div>
                             </li>
                             <li class="flex items-center mb-2">
                                 <div class="displayDateFive"></div>
-                                <img src="" class="w-14 displayWeatherFive" alt="">
+                                <img src="..." class="w-14 displayWeatherFive" alt="">
                                 <div class="text-lg font-semibold displayTempFive"></div>
                             </li>
                         </ul>
                     </div>
                 </div>
+            </div>
         </main>
 
         <!------------ FOOTER ------------->
@@ -146,8 +146,8 @@
     <!------------ jQuery & JS link ------------->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script src="./js/weather.js"></script>
     <script src="./js/tooltip.js"></script>
+    <script src="./js/weather.js"></script>
 
 </body>
 
