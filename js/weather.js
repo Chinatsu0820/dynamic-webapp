@@ -97,6 +97,8 @@ function displayWeatherData(data) {
     const weatherIcon = document.getElementById("displayWeather");
 
     weatherIcon.setAttribute('src', iconURL);
+    weatherIcon.style.opacity = "100"
+    weatherIcon.style.width = "10vw"
 
 
     // ----- for speed (m/sec) -----  
@@ -173,6 +175,7 @@ function getFiveWeather(city) {
 
                 // to display the icon on the app
                 weatherIconFive.attr('src', iconFiveURL);
+                weatherIconFive.css("display", "inline-block");
 
 
                 // ----- for date -----

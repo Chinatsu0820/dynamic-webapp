@@ -70,16 +70,16 @@
                     <div class="md:col-span-3 md:order-2">
                         <div class="bg-white shadow-md rounded-lg p-4 mb-3">
                             <div class="p-4 flex justify-between">
-                                <p class="text-lg font-semibold" id="displayCityName">City Name</p>
+                                <p class="text-lg font-semibold md:text-3xl" id="displayCityName">City Name</p>
                                 <p class="" id="displayDateToday">date</p>
                             </div>
-                            <img class="w-48" id="displayWeather" alt="">
+                            <img class="w-20 m-4 opacity-30" id="displayWeather" src="assets/imgs/tempo-one.png" alt="This picture would change an image of today's weather from API.">
                         </div>
 
                         <div class="grid md:grid-cols-2 gap-3">
                             <!--Today's temp-->
-                            <div class="bg-white shadow-md rounded-lg p-4 md:col-span-1">
-                                <p class="">Temprature</p>
+                            <div class="bg-white shadow-md rounded-lg p-4 md:col-span-1 md:h-full">
+                                <p>Temprature</p>
                                 <div class="p-4">
                                     <p class="text-lg font-semibold" id="displayTempHigh">HIGH TEMP</p>
                                     <p class="text-lg font-semibold" id="displayTempLow">LOW TEMP</p>
@@ -87,9 +87,9 @@
                             </div>
 
                             <!--Today's wind-->
-                            <div class="bg-white shadow-md rounded-lg p-4 md:col-span-1">
-                                <p class="">Wind</p>
-                                <div class="p-4">
+                            <div class="bg-white shadow-md rounded-lg p-4 md:col-span-1 md:h-full">
+                                <p>Wind</p>
+                                <div class="m-4">
                                     <p class="text-lg font-semibold" id="displayWindSpeed">WIND</p>
                                 </div>
                             </div>
@@ -100,34 +100,34 @@
                     <!-- Weekly weather -->
                     <div class="md:col-span-2 md:order-1 bg-white rounded-lg shadow-md ">
 
-                        <div class="p-4">
+                        <div class="m-4">
                             <h5 class="text-lg font-semibold">WEEKLY</h5>
                             <p class="text-gray-600">This is 5 days weather forecast</p>
                         </div>
-                        <ul class="mt-4 p-4">
+                        <ul class="mt-4 m-4">
                             <li class="flex items-center mb-2">
                                 <div class="displayDateFive"></div>
-                                <img class="w-14 displayWeatherFive" alt="">
+                                <img class="w-14 m-1 hidden displayWeatherFive" src="assets/imgs/tempo-week.png" alt="">
                                 <div class="text-lg font-semibold displayTempFive"></div>
                             </li>
                             <li class="flex items-center mb-2">
                                 <div class="displayDateFive"></div>
-                                <img class="w-14 displayWeatherFive" alt="">
+                                <img class="w-14 m-1 hidden displayWeatherFive" src="assets/imgs/tempo-week.png" alt="">
                                 <div class="text-lg font-semibold displayTempFive"></div>
                             </li>
                             <li class="flex items-center mb-2">
                                 <div class="displayDateFive"></div>
-                                <img class="w-14 displayWeatherFive" alt="">
+                                <img class="w-14 m-1 hidden displayWeatherFive" src="assets/imgs/tempo-week.png" alt="">
                                 <div class="text-lg font-semibold displayTempFive"></div>
                             </li>
                             <li class="flex items-center mb-2">
                                 <div class="displayDateFive"></div>
-                                <img class="w-14- displayWeatherFive" alt="">
+                                <img class="w-14 m-1 hidden displayWeatherFive" src="assets/imgs/tempo-week.png" alt="">
                                 <div class="text-lg font-semibold displayTempFive"></div>
                             </li>
                             <li class="flex items-center mb-2">
                                 <div class="displayDateFive"></div>
-                                <img class="w-14 displayWeatherFive" alt="">
+                                <img class="w-14 m-1 hidden displayWeatherFive" src="assets/imgs/tempo-week.png" alt="">
                                 <div class="text-lg font-semibold displayTempFive"></div>
                             </li>
                         </ul>
