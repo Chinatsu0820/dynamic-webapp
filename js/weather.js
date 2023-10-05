@@ -89,6 +89,8 @@ function displayWeatherData(data) {
     // to adjust the number of digits after the decimal point to 2 digits, and display it on the app
     temperatureElementHigh.textContent = `Highest : ${temperatureHigh.toFixed(2)}°C`;
     temperatureElementLow.textContent = `Lowest : ${temperatureLow.toFixed(2)}°C`;
+    temperatureElementHigh.style.color = "pink";
+    temperatureElementLow.style.color = "skyblue";
 
     //----- for weather icon ----- 
     // get the icon from openweathermap and display it on the app 
@@ -99,6 +101,7 @@ function displayWeatherData(data) {
     weatherIcon.setAttribute('src', iconURL);
     weatherIcon.style.opacity = "100"
     weatherIcon.style.width = "10vw"
+    weatherIcon.style.minWidth = "80px"
 
 
     // ----- for speed (m/sec) -----  
