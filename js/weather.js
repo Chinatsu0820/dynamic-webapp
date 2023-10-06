@@ -139,7 +139,7 @@ function displayCurrentDate(data) {
 }
 
 
-
+/*----- jQuery -----*/
 /*-----  to get an url of 5 days weather forecast using Ajax -----*/
 function getFiveWeather(city) {
     $.ajax({

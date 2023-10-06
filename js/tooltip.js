@@ -1,3 +1,4 @@
+/*----- jQuery -----*/
 /*-------- for tooltips of sns icons -------*/
 $(function() {
     $(".snsButton").mouseover(function() {
